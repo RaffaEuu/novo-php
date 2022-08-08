@@ -19,6 +19,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
         $_SESSION['senha'] = $senha;
 
         $_SESSION['mensagem'] = 'Login sucesso!';
+        $_SESSION['tipo_msg'] = 'primary';
 
         header('location: form.php');
     } else {
@@ -43,28 +44,40 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-4">
-            <div class="card-header">
-                CRUD
+    <div class="container" style="margin-top: 5%">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        CRUD
+                    </div>
+                    <div class="card-body">
+                        <form action="login.php" method="post">
+                            <fieldset>
+                                <legend>Login</legend>
+                                <div class="mb-3">
+                                    <label for="usuario" class="form-label">Usuário</label> <br>
+                                    <input type="text" name="usuario" class="form-control" placeholder="Digite aqui:">
+                                </div class="mb-3">
+                                <div class="mb-3">
+                                    <label for="senha" class="form-label">Senha</label> <br>
+                                    <input type="password" name="senha" class="form-control" placeholder="digite aqui:">
+                                </div class="mb-3">
+                                <input type="submit" value="Entrar" class="btn btn-primary btn-block">
+                                <div class="text-center">
+                                    <a href="cadastro.php">Cadastrar</a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
             </div>
-            <form action="login.php" method="post">
-                <fieldset>
-                    <legend>Login</legend>
-                    <div class="mb-3">
-                        <label for="usuario">Usuário</label> <br>
-                        <input type="text" name="usuario" class="form-control">
-                    </div class="mb-3">
-                    <div class="mb-3">
-                        <label for="senha">Senha</label> <br>
-                        <input type="password" name="senha" class="form-control">
-                    </div class="mb-3">
-                    <input type="submit" value="Entrar">
-                    <a href="cadastro.php">Cadastrar</a>
-                </fieldset>
-            </form>
+
+
         </div>
-        
+
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

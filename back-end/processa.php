@@ -11,6 +11,8 @@ $query = "INSERT INTO `tarefa`(`titulo`, `descricao`) VALUES ('$titulo','$descri
 $sql = mysqli_query($conexao, $query);
 
 $_SESSION['mensagem'] = 'tarefa salva com sucesso!!!';
+$_SESSION['tipo_msg'] = 'success';
+//$_SESSION['tipo_msg'] = 'warning';
 
 header("location: ../view/form.php");
 
